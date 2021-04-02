@@ -6,18 +6,18 @@
 二.添加对应权限
 
 需要在AndroidManifest.xml文件的manifest标签下添加对应权限：
-
+#```
 <permission
     android:name="com.knowin.pushdemo.permission.PUSH_RECEIVER"
     android:protectionLevel="signature" /> <!-- 这里com.knowin.pushdemo改成app的包名 -->
 <uses-permission android:name="com.knowin.pushdemo.permission.PUSH_RECEIVER" /> <!-- 这里com.knowin.pushdemo改成app的包名 -->
 <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- 由于SDK继承JobIntentService所以需要WAKE_LOCK权限 -->
-
+#```
 三.继承实现消息接收类
 
 3.1编写广播继承KnowinPushWakefulReceiver
 
-
+#```
 public class PushMessageReceiver extends KnowinPushWakefulReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -27,9 +27,11 @@ public class PushMessageReceiver extends KnowinPushWakefulReceiver {
         startWakefulService(context, KnowinPushIntentService.class, (intent.setComponent(comp)));
     }
 }
+#```
 
 3.2编写服务继承KnowinPushBaseIntentService
 
+#```
 public  class KnowinPushIntentService extends KnowinPushBaseIntentService {
 
     @Override
@@ -44,12 +46,13 @@ public  class KnowinPushIntentService extends KnowinPushBaseIntentService {
         // TODO 用于非标准的自定义消息信息，自己处理整个JSON文件
     }
 }
-
+#```
 
 3.3静态注册广播服务
 
 在AndroidManifest.xml文件的application标签下注册响应的广播和服务
 
+#```
 <application>
 
          <!-- 接收推送消息的service -->
@@ -67,12 +70,13 @@ public  class KnowinPushIntentService extends KnowinPushBaseIntentService {
             </intent-filter>
         </receiver>
     </application>
-
+#```
 
 四.项目注册（未实现,现阶段免注册，直接返回成功）
 
 通过KnowinPushManager进行注册绑定Push 服务，进行广播接收。
 
+#```
 KnowinPushManager mPushManager = KnowinPushManager.getInstance(this);
 //注册服务
 String regID = mPushManager.register(APP_ID, APP_KEY);
@@ -88,7 +92,7 @@ String message = mPushManager.querySubscribe(APP_ID);
 boolean status=  mPushManager.bindUser(token);
 //用户解绑
 boolean status=  mPushManager.unbindUser();
-
+#```
 
 ⚠️备注：
 

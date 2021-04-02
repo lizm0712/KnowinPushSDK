@@ -1,5 +1,5 @@
-# KnowinPushSDK
-#如影Push SDK demo
+#如影Push SDK Demo
+
 一.添加SDK jar包
 将对应版本的PushSDK.jar包拷贝到项目的app/lib目录下，并在app下的 build.gradle依赖对应jar包。
 

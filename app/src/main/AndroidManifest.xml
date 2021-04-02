@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.knowin.pushdemo">
+
+    <permission
+        android:name="com.knowin.pushdemo.permission.PUSH_RECEIVER"
+        android:protectionLevel="signature" /> <!-- 这里com.knowin.pushdemo改成app的包名 -->
+    <uses-permission android:name="com.knowin.pushdemo.permission.PUSH_RECEIVER" /> <!-- 这里com.knowin.pushdemo改成app的包名 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+        <service
+            android:name=".KnowinPushIntentService"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
+        <!-- 接收推送消息的receiver -->
+        <receiver
+            android:name=".PushMessageReceiver"
+            android:permission="com.knowin.pushservice.permission.SEND_PUSH">
+            <intent-filter>
+                <action android:name="com.knowin.pushservice.ACTION_RECEIVE_PUSH_MESSAGE" />
+                <!-- category中com.knowin.pushdemo替换为app包名 -->
+                <category android:name="com.knowin.pushdemo" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

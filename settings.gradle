@@ -1,0 +1,3 @@
+rootProject.name = "PushServiceSDK"
+//include ':pushsdk'
+include ':app'

@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">PushDemo</string>
+    <string name="action_settings">Settings</string>
+    <string name="push_bt_text">推送测试</string>
+    <string name="control_bt_text">控制测试</string>
+    <!-- 推送 -->
+    <string name="send_msg_lable_text">推送消息</string>
+    <string name="regist_appid_text">注册</string>
+    <string name="unregist_appid_text">appid注销</string>
+    <string name="time_push_text">免打扰</string>
+    <string name="start_time_text">开始时间</string>
+    <string name="end_time_push_text">结束时间</string>
+    <string name="ok_text">确定</string>
+    <string name="bind_user_text">用户绑定</string>
+    <string name="unbind_user_text">用户解绑</string>
+    <string name="search_app_text">查询app</string>
+    <string name="search_msg_text">查询消息</string>
+    <string name="push_broad_msg_text">广播消息</string>
+    <string name="push_broad_notify_text">广播通知</string>
+    <string name="push_regid_msg_text">按regid消息</string>
+    <string name="push_regid_notify_text">按regid通知</string>
+    <string name="subscribe_text">订阅</string>
+    <string name="subscribe_text_edit">weather</string>
+    <string name="subscribe_hint">订阅由app拥有者在push服务端创建</string>
+    <string name="unsubscribe_text">取消订阅</string>
+    <string name="query_subscribe_text">查询订阅</string>
+    <string name="receiver_message_text">接收消息:</string>
+    <string name="regid_edit_text">regid:</string>
+    <string name="appid_edit_text">appid</string>
+    <string name="pause">暂停</string>
+    <string name="resume">启动</string>
+    <string name="get_app_state">查询状态</string>
+    <string name="testing_eco">测试环境</string>
+    <string name="on_line_eco">线上环境</string>
+</resources>
